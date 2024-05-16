@@ -12,7 +12,7 @@ pub fn derive_serialize(input: TokenStream) -> TokenStream {
             let fields = s.fields.into_iter().map(|field| field.ident.unwrap());
             quote! {
                 impl ::sbs_api::Serialize for #name {
-                    fn serialize(&self, sbi: &mut ::serialize_internal::SBI) {
+                    fn serialize(&self, sbi: &mut ::sbs_api::SBI) {
                         #(
                             Serialize::serialize(&self.#fields, sbi);
                         )*

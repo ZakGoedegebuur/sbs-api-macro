@@ -37,7 +37,7 @@ pub fn derive_deserialize(input: TokenStream) -> TokenStream {
             let types = s.fields.clone().into_iter().map(|field| field.ty);
             quote! {
                 impl ::sbs_api::DeSerialize for #name {
-                    fn deserialize(sbi: &mut SBI, offset: &mut usize) -> Result<Self, ()> where Self: Sized {
+                    fn deserialize(sbi: &mut ::sbs_api::SBI, offset: &mut usize) -> Result<Self, ()> where Self: Sized {
                         Ok(Self {
                             #(  
                                 #fields: #types ::deserialize(sbi, offset)?,

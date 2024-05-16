@@ -28,7 +28,7 @@ checksum = "b62516516cca5137e51e66287f227af39d5e86c0db9295e5e39887acf6aab99d"
 
 [[package]]
 name = "sbs-api-macro"
-version = "0.1.12"
+version = "0.1.13"
 dependencies = [
  "quote",
  "sbs-api-internal",

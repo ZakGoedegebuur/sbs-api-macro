@@ -1,0 +1,20 @@
+[package]
+name = "sbs-api-macro"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Macros for sbs-api crate"
+documentation = "https://docs.rs/sbs-api-macro"
+repository = "https://github.com/ZakGoedegebuur/sbs-api-macro"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+proc-macro = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+quote = "1.0.36"
+syn = "2.0.61"
+sbs-api-internal = "0.1.1"

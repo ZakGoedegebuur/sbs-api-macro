@@ -11,7 +11,7 @@ pub fn derive_serialize(input: TokenStream) -> TokenStream {
         Data::Struct(s) => {
             let fields = s.fields.into_iter().map(|field| field.ident.unwrap());
             quote! {
-                impl ::sbs_api_internal::Serialize for #name {
+                impl ::sbs_api::Serialize for #name {
                     fn serialize(&self, sbi: &mut ::serialize_internal::SBI) {
                         #(
                             Serialize::serialize(&self.#fields, sbi);
@@ -36,7 +36,7 @@ pub fn derive_deserialize(input: TokenStream) -> TokenStream {
             let fields = s.fields.clone().into_iter().map(|field| field.ident.unwrap());
             let types = s.fields.clone().into_iter().map(|field| field.ty);
             quote! {
-                impl ::sbs_api_internal::DeSerialize for #name {
+                impl ::sbs_api::DeSerialize for #name {
                     fn deserialize(sbi: &mut SBI, offset: &mut usize) -> Result<Self, ()> where Self: Sized {
                         Ok(Self {
                             #(  
